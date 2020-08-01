@@ -39,7 +39,7 @@ const myURL = (req) => {
 }
 
 server.datastore = new tus.FileStore({
-    path: 'home/cfa/dashboard_data/source/',
+    path: '/data/source',
     namingFunction: myURL
 });
 
