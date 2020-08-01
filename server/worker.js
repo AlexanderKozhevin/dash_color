@@ -109,7 +109,10 @@ router.post('/job_done', function(req, res){
 
   db.get().collection('photos').updateOne({
         name: req.body.name
-      }, {$set: {"status": "done"}}).then(()=>{
+      }, {$set: {
+        "status": "done",
+        "link": "http://localhost:3000/result/" + req.body.name
+      }}).then(()=>{
         res.status(200).send('ok')
       })
 })
