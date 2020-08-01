@@ -34,8 +34,8 @@ export const mutations = {
   let date = new Date()
 
 
-  // let hash = md5(date + file.name);
-  let hash = file.name;
+  let hash = md5(date + file.name);
+  // let hash = file.name;
 
   let extension = file.name.split('.').pop();
   let finalExt = ''
@@ -43,7 +43,7 @@ export const mutations = {
     finalExt = extension.toLowerCase()
   }
   // let final_name = hash + '.' + finalExt
-  let final_name = hash
+  let final_name = hash + '.'  + finalExt
 
   let baseurl ='http://localhost:3000/'
   let UPLOAD_URL = baseurl + `worker/uploads?name=${final_name}`
@@ -62,6 +62,7 @@ export const mutations = {
     chunkSize: 1000000,
     removeFingerprintOnSuccess: true,
     metadata: {
+      filename : file.name
     },
     onError: function(error) {
       console.log('error')
