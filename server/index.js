@@ -10,7 +10,7 @@ const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 
 app.use('/worker', worker)
-app.use('/bw', express.static('files'))
+app.use('/bw', express.static('../dashboard_data'))
 
 
 
