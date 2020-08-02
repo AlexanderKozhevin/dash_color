@@ -119,7 +119,7 @@ router.post('/job_done', function(req, res){
 
 router.get('/tasks', function(req, res){
   db.get().collection('photos').find({status: "wait"}).sort({_id:1}).limit(1).toArray((error, photos)=>{
-    res.send({photoss})
+    res.send(photos)
   })
 })
 
