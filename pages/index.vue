@@ -1,6 +1,6 @@
 <template>
   <div class="desktop-root flex-row flex-main-center">
-    <div class="root-container">
+    
       <div class="root-content">
         <main-menu active="index"></main-menu>
         <div class="my-contentent flex-col flex-main-start">
@@ -8,7 +8,7 @@
           <photos />
         </div>
       </div>
-    </div>
+
   </div>
 </template>
 
