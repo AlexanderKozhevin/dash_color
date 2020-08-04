@@ -9,7 +9,7 @@ var db = require('./db')
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 
-app.use('/worker', worker)
+app.use('/api/photos', worker)
 app.use('/bw', express.static('data/source'))
 app.use('/result', express.static('data/result'))
 

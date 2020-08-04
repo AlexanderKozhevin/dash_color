@@ -3,7 +3,7 @@ import md5 from 'md5';
 import axios from "axios";
 
 let server = axios.create({
-  baseURL: 'http://localhost:3000/worker/'
+  baseURL: 'http://localhost:3000/api/photos'
 });
 
 export const state = () => ({
@@ -21,7 +21,7 @@ export const mutations = {
   },
   get_list(state){
     // state.photos = []
-    server.get('/photos?page=' + state.page).then((data)=>{
+    server.get('/?page=' + state.page).then((data)=>{
       console.log('list');
       console.log(data);
       state.photos = data.data.photos;
@@ -46,7 +46,7 @@ export const mutations = {
   let final_name = hash + '.'  + finalExt
 
   let baseurl ='http://localhost:3000/'
-  let UPLOAD_URL = baseurl + `worker/uploads?name=${final_name}`
+  let UPLOAD_URL = baseurl + `api/photos/uploads?name=${final_name}`
 
   let listt  = Object.assign([], state.uploads);
   listt.push(final_name)

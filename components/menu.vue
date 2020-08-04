@@ -11,6 +11,14 @@
         </div>
 
       </nuxt-link>
+
+      <nuxt-link to="/video">
+
+        <div class="logout" :class="{ 'active': active == 'video',  'opacify': active != 'video'}">
+          <img class="" src="/img/video.svg" />
+        </div>
+
+      </nuxt-link>
 <!--
       <nuxt-link to="/video">
         <div class="logout" :class="{ 'active': active == 'video',  'opacify': active != 'video'}">

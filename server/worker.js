@@ -124,7 +124,7 @@ router.get('/tasks', function(req, res){
 })
 
 
-router.get('/photos', function(req, res){
+router.get('/', function(req, res){
 
 
   let page = req.body.page || 1
