@@ -30,7 +30,7 @@ min-height: 100vh;
   margin-top: 30px;
   background-color: white;
   width: 80vw;
-  height: calc(80vw / 1.6);
+  height: 90vh;
   max-height: 100vh;
   min-width: 1152px!important;
   min-height: 722px!important;
@@ -39,8 +39,8 @@ min-height: 100vh;
   box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
   display: flex;
   flex-direction: row;
-  max-height: 720px;
-  max-width: 1152px;
+  /* max-height: 720px; */
+  /* max-width: 1152px; */
 }
 
 
