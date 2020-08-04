@@ -40,6 +40,7 @@ export default {
 .hello_photo{
   padding-left: 20px;
   padding-top: 10px;
+  overflow: auto!important;
   // background-color: red;
 }
 .break_photo{
