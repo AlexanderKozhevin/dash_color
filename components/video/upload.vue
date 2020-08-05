@@ -5,10 +5,10 @@
       <input
         name="myFile"
         type="file"
-        id="file_input"
+        id="file_input2"
         @change="pre_upload"
         multiple
-        accept="image/jpeg,image/jpg"
+        accept="video/mp4"
         />
         <img class="add_icon" src="/img/add_video.svg" v-if="$store.state.uploads.length == 0" />
         <img class="load_icon" src="/img/load2.svg" v-if="$store.state.uploads.length > 0" />
@@ -69,7 +69,7 @@ export default {
     pre_upload(event){
       for (let i = 0; i < event.target.files.length; i++) {
 
-          this.$store.commit('uploadFile', event.target.files[i])
+          this.$store.commit('uploadVideo', event.target.files[i])
 
       }
     }
@@ -111,7 +111,7 @@ export default {
 .reload{
   margin-right: 30px;
 }
-#file_input{
+#file_input2{
     position: absolute;
     /* width: 168px; */
     height: 46px;

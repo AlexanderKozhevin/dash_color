@@ -3,6 +3,7 @@ const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 var worker = require('./worker')
+var video = require('./video')
 var db = require('./db')
 
 // Import and Set Nuxt.js options
@@ -10,8 +11,14 @@ const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 
 app.use('/api/photos', worker)
+app.use('/api/videos', video)
+
 app.use('/bw', express.static('data/source'))
 app.use('/result', express.static('data/result'))
+
+
+app.use('/video_source', express.static('video_data/source'))
+app.use('/video_result', express.static('video_data/result'))
 
 
 

@@ -1,13 +1,34 @@
 <template>
   <div class="hello_img">
-    <div class="preview" :style="getStyle(data)">
+    <div class="preview flex-col">
 
-      <div v-if="data.status == 'wait'" class="waiter flex-row flex-main-center flex-second-center">
+      <!-- <div v-if="data.status == 'wait'" class="waiter flex-row flex-main-center flex-second-center">
         <img class="add_icon" src="/img/wait.svg" />
+      </div> -->
+<!--
+      <a v-if="data.status == 'done'" :href="data.link" target="_blank" class="href_link flex-row flex-main-center flex-second-center">
+      </a> -->
+
+      <div class="naming">
+        {{data.name}}
       </div>
 
-      <a v-if="data.status == 'done'" :href="data.link" target="_blank" class="href_link flex-row flex-main-center flex-second-center">
-      </a>
+      <video width="100%" height="200px" controls>
+  <source :src="data.original" type="video/mp4">
+</video>
+
+<div class="flex-row flex flex-main-center flex-second-center" v-if="data.status == 'wait'">
+  in queue
+</div>
+
+<div class="flex-row flex logs flex-main-center flex-second-center" v-if="data.status == 'work'">
+  <img class="wait_icon" src="/img/wait2.svg" />
+  <div>{{data.logs}}</div>
+</div>
+
+<div class="flex-row flex logs flex-main-center flex-second-center" v-if="data.status == 'done'">
+  ready
+</div>
 
 
     </div>
@@ -55,8 +76,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .hello_img{
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  // height: 250px;
   border: 1px solid rgba(#303952, 0.2);
   margin-left: 10px;
   margin-bottom: 10px;
@@ -83,5 +104,16 @@ export default {
 .href_link{
   width: 100%;
   height: 100%;
+}
+.logs{
+  font-size: 12px!important;
+}
+.wait_icon{
+  margin-right: 10px;
+}
+.naming{
+  font-size: 12px;
+  margin-left: 12px;
+  margin-top: 12px;
 }
 </style>

@@ -26,9 +26,9 @@ export default {
   created(){
     // this.$store.commit('shift_page')
     setTimeout(()=>{
-      this.$store.commit('get_list')
+      this.$store.commit('get_list_video')
       setInterval(()=>{
-        this.$store.commit('get_list')
+        this.$store.commit('get_list_video')
       }, 5000)
     }, 50)
 

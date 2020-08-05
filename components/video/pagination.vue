@@ -4,7 +4,7 @@
       <img class="icon-image"  src="/img/left.svg" />
     </div>
     <div class="page-number flex-row flex-main-center flex-second-center">
-      {{$store.state.page}} - {{$store.state.max_page}}
+      {{$store.state.page_video}} - {{$store.state.max_page_video}}
     </div>
     <div class="flex-row flex-main-center flex-second-center page-button" @click="shift(1)">
       <img class="icon-image"  src="/img/right.svg" />
@@ -41,9 +41,9 @@ export default {
         page = this.$store.state.max_page
       }
 
-      this.$store.commit('shift_page', page)
+      this.$store.commit('shift_page_video', page)
       setTimeout(()=>{
-        this.$store.commit('get_list')
+        this.$store.commit('get_list_video')
       }, 50)
     }
   },

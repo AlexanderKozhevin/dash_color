@@ -1,8 +1,8 @@
 <template>
   <div class="hello flex-row flex-wrap hello_photo">
-    <photo v-for="(el, index) in $store.state.photos" :data="el" :key="index" />
+    <photo v-for="(el, index) in $store.state.videos" :data="el" :key="index" />
 
-    <div class="aligner flex-row flex-main-center flex-second-center" v-if="$store.state.photos.length == 0">
+    <div class="aligner flex-row flex-main-center flex-second-center" v-if="$store.state.videos.length == 0">
       <img class="break_photo" src="/img/break.png" />
     </div>
 
