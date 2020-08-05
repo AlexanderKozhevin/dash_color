@@ -3,7 +3,7 @@
     <photo v-for="(el, index) in $store.state.videos" :data="el" :key="index" />
 
     <div class="aligner flex-row flex-main-center flex-second-center" v-if="$store.state.videos.length == 0">
-      <img class="break_photo" src="/img/break.png" />
+      <img class="break_photo" src="/img/edu.png" />
     </div>
 
   </div>
