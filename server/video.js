@@ -64,6 +64,15 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
       db.get().collection('videos').insertOne(video).then(()=>{
         console.log('created video task');
       })
+      fs.unlink('/home/cfa/dash_color/video_data/source/' + event.file.id, (err) => {
+        if (err) {
+          console.log('error deleting file :()');
+          console.error(err)
+          return
+        }
+
+        //file removed
+      })
     });
 
     // console.log(event.file.upload_metadata);
