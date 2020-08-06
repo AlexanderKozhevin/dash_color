@@ -58,7 +58,7 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
       filename: metadata.filename,
       original: "http://localhost:3000/video_source/" + event.file.id
     }
-    fs.copyFile('/home/cfa/dash_color/server/video_data/source/' + event.file.id, '/home/cfa/colorize_enterprise/colorize_enterprise/video/source/' + event.file.id, (err) => {
+    fs.copyFile('/home/cfa/dash_color/video_data/source/' + event.file.id, '/home/cfa/colorize_enterprise/colorize_enterprise/video/source/' + event.file.id, (err) => {
       console.log(' - FILE - --');
       console.log(err);
       db.get().collection('videos').insertOne(video).then(()=>{
