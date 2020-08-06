@@ -64,15 +64,15 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
       db.get().collection('videos').insertOne(video).then(()=>{
         console.log('created video task');
       })
-      fs.unlink('/home/cfa/dash_color/video_data/source/' + event.file.id, (err) => {
-        if (err) {
-          console.log('error deleting file :()');
-          console.error(err)
-          return
-        }
-
-        //file removed
-      })
+      // fs.unlink('/home/cfa/dash_color/video_data/source/' + event.file.id, (err) => {
+      //   if (err) {
+      //     console.log('error deleting file :()');
+      //     console.error(err)
+      //     return
+      //   }
+      //
+      //   //file removed
+      // })
     });
 
     // console.log(event.file.upload_metadata);
@@ -152,7 +152,6 @@ router.get('/tasks', function(req, res){
 
 router.get('/', function(req, res){
 
-
   let page = req.body.page || 1
 
   db.get().collection('videos').count({}).then((max)=>{
@@ -165,9 +164,6 @@ router.get('/', function(req, res){
       res.status(200).json({max: mymax, photos: photos})
     })
   })
-
-
-
 
 })
 

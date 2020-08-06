@@ -13,8 +13,12 @@
         {{data.name}}
       </div>
 
-      <video width="100%" height="200px" controls>
+      <video width="100%" height="200px" controls v-if="data.status != 'done'">
   <source :src="data.original" type="video/mp4">
+</video>
+
+<video width="100%" height="200px" controls v-if="data.status == 'done'">
+<source :src="data.link" type="video/mp4">
 </video>
 
 <div class="flex-row flex flex-main-center flex-second-center" v-if="data.status == 'wait'">
