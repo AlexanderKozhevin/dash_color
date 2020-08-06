@@ -120,13 +120,24 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
 
 router.use('/uploads',  uploadApp);
 
+router.post('/job_start', function(req, res){
+
+  db.get().collection('videos').updateOne({
+        name: req.body.name
+      }, {$set: {
+        "status": "work"
+      }}).then(()=>{
+        res.status(200).send('ok')
+      })
+})
+
 router.post('/job_done', function(req, res){
 
-  db.get().collection('photos').updateOne({
+  db.get().collection('videos').updateOne({
         name: req.body.name
       }, {$set: {
         "status": "done",
-        "link": "http://localhost:3000/result/" + req.body.name
+        "link": "http://localhost:3000/video_result/" + req.body.name
       }}).then(()=>{
         res.status(200).send('ok')
       })
