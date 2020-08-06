@@ -3,6 +3,8 @@ var router = express.Router()
 var bodyParser = require('body-parser');
 const consola = require('consola')
 var fs = require('fs');
+var exec = require('child_process').exec;
+
 
 const _ = require('lodash')
 const tus = require('tus-node-server');
@@ -116,6 +118,36 @@ router.post('/job_done', function(req, res){
         res.status(200).send('ok')
       })
 })
+
+
+router.get('/xuilog', function(req, res){
+  fs.readFile('./server/xui.log', 'utf8', function(err, data) {
+    if (err) throw err;
+    console.log(data);
+    console.log(typeof(data));
+  });
+  res.send('xui')
+
+})
+
+router.get('/bash_test', function(req, res){
+
+  exec('./server/test.sh', function(error, stdout, stderr){
+    console.log(stdout);
+  });
+  res.send('good')
+
+  // const pyProg = spawn('bash', ['./test.sh']);
+  //
+  // pyProg.stdout.on('data', function(data) {
+  //   console.log(data);
+  //     res.send('yeah')
+  //     // let str = data.toString().replace('\n','')
+  //     // let date = str.split(',')
+  //
+  // });
+})
+
 
 router.get('/tasks', function(req, res){
   db.get().collection('photos').find({status: "wait"}).sort({_id:1}).limit(1).toArray((error, photos)=>{

@@ -58,8 +58,11 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
       filename: metadata.filename,
       original: "http://localhost:3000/video_source/" + event.file.id
     }
-    db.get().collection('videos').insertOne(video).then(()=>{
-    })
+    fs.copyFile('./server/video_data/source/' + event.file.id, '/home/cfa/colorize_enterprise/colorize_enterprise/video/source/' + event.file.id, (err) => {
+      db.get().collection('videos').insertOne(video).then(()=>{
+      })
+    });
+
     // console.log(event.file.upload_metadata);
 
 		// let metadata = metadataStringToObject(event.file.upload_metadata)
