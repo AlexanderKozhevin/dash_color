@@ -3,6 +3,7 @@ var router = express.Router()
 var bodyParser = require('body-parser');
 const consola = require('consola')
 var fs = require('fs');
+const readLastLines = require('read-last-lines');
 
 const _ = require('lodash')
 const tus = require('tus-node-server');
@@ -129,6 +130,31 @@ router.post('/job_start', function(req, res){
       }}).then(()=>{
         res.status(200).send('ok')
       })
+})
+
+
+router.get('/log', function(req, res){
+
+  // readLastLines.read('./server/mylogs.log', 2)
+  //     .then((lines) => {
+  //       res.send(lines)
+  //     });
+
+
+  fs.readFile('./server/mylogs.log', 'utf8', function(err, data) {
+    if (err) throw err;
+    // console.log(data);
+    // console.log(typeof(data));
+    let index1 = data.lastIndexOf('[')
+    let index2 = data.lastIndexOf(']')
+    if ((index1 != -1) && (index2 != -1)){
+      res.send(data.substr(index1, index2))
+    } else {
+      res.send('')
+    }
+
+  });
+
 })
 
 router.post('/job_done', function(req, res){

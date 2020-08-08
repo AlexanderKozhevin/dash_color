@@ -1,41 +1,36 @@
 <template>
   <div class="hello_img">
-    <div class="preview flex-col">
+    <div class="preview flex-row flex-second-center">
 
-      <!-- <div v-if="data.status == 'wait'" class="waiter flex-row flex-main-center flex-second-center">
-        <img class="add_icon" src="/img/wait.svg" />
-      </div> -->
-<!--
-      <a v-if="data.status == 'done'" :href="data.link" target="_blank" class="href_link flex-row flex-main-center flex-second-center">
-      </a> -->
-
-      <div class="naming">
-        {{data.name}}
+      <div class="naming flex-col">
+        <div>{{data.name}}</div>
+        <a :href="'http://localhost:3000/video_source/' + data.name">/home/cfa/dash_color/video/source/{{data.name}}</a>
+        <a v-if="data.status == 'done'" :href="'http://localhost:3000/video_result/' + data.name">/home/cfa/dash_color/video/result/{{data.name}}</a>
       </div>
 
-      <video width="100%" height="200px" controls v-if="data.status != 'done'">
-  <source :src="data.original" type="video/mp4">
-</video>
+      <div class="flex">
+      </div>
+      <div class="flex-row flex-main-center flex-second-center" v-if="data.status == 'wait'">
+        <div>Wait</div>
+        <img class="wait_icon" src="/img/waiting.svg" />
+      </div>
 
-<video width="100%" height="200px" controls v-if="data.status == 'done'">
-<source :src="data.link" type="video/mp4">
-</video>
+      <div class="flex-row   flex-main-center flex-second-center" v-if="data.status == 'work'">
+        <div>Processing</div>
+        <img class="wait_icon" src="/img/work.svg" />
+      </div>
 
-<div class="flex-row flex flex-main-center flex-second-center" v-if="data.status == 'wait'">
-  in queue
-</div>
+      <div class="flex-row  flex-main-center flex-second-center" v-if="data.status == 'done'">
+        <div>Ready</div>
 
-<div class="flex-row flex logs flex-main-center flex-second-center" v-if="data.status == 'work'">
-  <img class="wait_icon" src="/img/wait2.svg" />
-  <div>{{data.logs}}</div>
-</div>
+        <img class="wait_icon" src="/img/done.svg" />
 
-<div class="flex-row flex logs flex-main-center flex-second-center" v-if="data.status == 'done'">
-  ready
-</div>
+      </div>
+
 
 
     </div>
+
   </div>
 </template>
 
@@ -57,7 +52,10 @@ export default {
   data() {
     return {};
   },
-  created() {},
+  created() {
+    console.log('created yo');
+    console.log(this.data);
+  },
   methods: {
     getStyle(data){
       let url = data.original
@@ -80,13 +78,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .hello_img{
-  width: 300px;
+  width: 95%;
+  min-height: 100px!important;
+  // margin-right: 0px;
   // height: 250px;
   border: 1px solid rgba(#303952, 0.2);
   margin-left: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  overflow: hidden;
+  // overflow: hidden;
 }
 .hello_img_thing{
   width: 100%;
@@ -96,7 +96,7 @@ export default {
   background-size: cover!important;
   background-repeat: no-repeat!important;
   background-position: center center!important;
-  width: 100%;
+  // width: 100%;
   height: 100%;
 
 }
@@ -110,14 +110,18 @@ export default {
   height: 100%;
 }
 .logs{
-  font-size: 12px!important;
+  font-size: 14px!important;
 }
 .wait_icon{
   margin-right: 10px;
+  width: 50px;
 }
 .naming{
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 12px;
-  margin-top: 12px;
+  // max-width: 150px;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // margin-top: 12px;
 }
 </style>

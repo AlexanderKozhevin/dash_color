@@ -120,15 +120,6 @@ router.post('/job_done', function(req, res){
 })
 
 
-router.get('/xuilog', function(req, res){
-  fs.readFile('./server/xui.log', 'utf8', function(err, data) {
-    if (err) throw err;
-    console.log(data);
-    console.log(typeof(data));
-  });
-  res.send('xui')
-
-})
 
 router.get('/bash_test', function(req, res){
 

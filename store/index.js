@@ -19,7 +19,8 @@ export const state = () => ({
   max_page: 1,
   max_page_video: 1,
   photos: [],
-  videos: []
+  videos: [],
+  video_log: ''
 })
 
 export const mutations = {
@@ -45,6 +46,18 @@ export const mutations = {
       console.log(data);
       state.videos = data.data.photos;
       state.max_page_video = data.data.max;
+    })
+  },
+  get_video_logs(state){
+    // state.photos = []
+    server_video.get('/log').then((data)=>{
+      console.log(' - - - ');
+      console.log(data);
+      state.video_log = data.data
+      // console.log('list');
+      // console.log(data);
+      // state.videos = data.data.photos;
+      // state.max_page_video = data.data.max;
     })
   },
   uploadVideo(state, file){
