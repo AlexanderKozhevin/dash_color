@@ -148,7 +148,7 @@ router.get('/log', function(req, res){
     let index1 = data.lastIndexOf('[')
     let index2 = data.lastIndexOf(']')
     if ((index1 != -1) && (index2 != -1)){
-      res.send(data.substr(index1, index2))
+      res.send(data.substr(index1, index2 - index1))
     } else {
       res.send('')
     }
