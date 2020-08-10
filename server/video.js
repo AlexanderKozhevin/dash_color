@@ -141,7 +141,7 @@ router.get('/log', function(req, res){
   //     });
 
 
-  fs.readFile('./server/mylogs.log', 'utf8', function(err, data) {
+  fs.readFile('/home/cfa/colorize_enterprise/colorize_enterprise/mylogs.log', 'utf8', function(err, data) {
     if (err) throw err;
     // console.log(data);
     // console.log(typeof(data));

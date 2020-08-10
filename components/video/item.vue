@@ -3,7 +3,7 @@
     <div class="preview flex-row flex-second-center">
 
       <div class="naming flex-col">
-        <div>{{data.name}}</div>
+        <div>{{data.filename}}</div>
         <a :href="'http://localhost:3000/video_source/' + data.name">/home/cfa/dash_color/video/source/{{data.name}}</a>
         <a v-if="data.status == 'done'" :href="'http://localhost:3000/video_result/' + data.name">/home/cfa/dash_color/video/result/{{data.name}}</a>
       </div>
