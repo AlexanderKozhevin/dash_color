@@ -135,12 +135,12 @@ router.post('/job_start', function(req, res){
 
 router.get('/log', function(req, res){
 
-  // readLastLines.read('./server/mylogs.log', 2)
-  //     .then((lines) => {
-  //       res.send(lines)
-  //     });
+  readLastLines.read('./server/mylogs.log', 2)
+      .then((lines) => {
+        res.send(lines)
+      });
 
-  res.send('')
+  // res.send('')
   // fs.readFile('/home/cfa/colorize_enterprise/colorize_enterprise/mylogs.log', 'utf8', function(err, data) {
   //   if (err) throw err;
   //   // console.log(data);
