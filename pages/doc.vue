@@ -117,7 +117,7 @@
             </div>
             <vue-code-highlight>
               cd ~/dash_color/
-              pm2 list # You will see service "colorize" - green or red
+              pm2 list # You will see service "colorizer" - green or red
             </vue-code-highlight>
 
             <div class="explanation">
