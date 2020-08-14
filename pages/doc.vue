@@ -109,7 +109,7 @@
             <vue-code-highlight>
               cd ~/dash_color/
               npm run build
-              pm2 start npm --name "colorizer" -- #start //it starts daemon mode
+              pm2 start npm --name "colorizer" -- start //it starts daemon mode
             </vue-code-highlight>
 
             <div class="explanation">
