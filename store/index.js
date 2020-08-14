@@ -53,6 +53,7 @@ export const mutations = {
     server_video.get('/log').then((data)=>{
       console.log(' - - - ');
       console.log(data);
+
       state.video_log = data.data
       // console.log('list');
       // console.log(data);

@@ -140,20 +140,20 @@ router.get('/log', function(req, res){
   //       res.send(lines)
   //     });
 
-
-  fs.readFile('/home/cfa/colorize_enterprise/colorize_enterprise/mylogs.log', 'utf8', function(err, data) {
-    if (err) throw err;
-    // console.log(data);
-    // console.log(typeof(data));
-    let index1 = data.lastIndexOf('[')
-    let index2 = data.lastIndexOf(']')
-    if ((index1 != -1) && (index2 != -1)){
-      res.send(data.substr(index1, index2 - index1))
-    } else {
-      res.send('')
-    }
-
-  });
+  res.send('')
+  // fs.readFile('/home/cfa/colorize_enterprise/colorize_enterprise/mylogs.log', 'utf8', function(err, data) {
+  //   if (err) throw err;
+  //   // console.log(data);
+  //   // console.log(typeof(data));
+  //   let index1 = data.lastIndexOf('[')
+  //   let index2 = data.lastIndexOf(']')
+  //   if ((index1 != -1) && (index2 != -1)){
+  //     res.send(data.substr(index1, index2 - index1))
+  //   } else {
+  //     res.send('')
+  //   }
+  //
+  // });
 
 })
 
